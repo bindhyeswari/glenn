@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        div.container {
+            border: 1px solid gray;
+            padding: 1em;
+        }
+
+        div.inner1, div.inner2 {
+            float: left;
+            width: 50%;
+            background-color: #eee;
+            height: 300px;
+        }
+
+        div.inner2 {
+            background-color: #aaa;
+
+            position: relative;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        div.inner3 {
+            width: 100%;
+
+            margin: 0 auto;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        div.inner4 {
+            border: 1px solid gray;
+            height: 20px;
+            width: 30%;
+
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container clearfix">
+        <div class="inner1">
+        </div>
+        <div class="inner2">
+            <div class="inner3">
+                <div class="inner4"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

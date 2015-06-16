@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+
+        h2::first-line { /* select a text node that is the first child of the h2 element */
+            color: green;
+        }
+
+
+
+        h2::after {
+            content: 'mydata'
+        }
+
+        h2 > :first-child { /* select an h2 element that is the first child of the parent or body */
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>asdfasdf<br/>Glenn Hold - UI Developer</h2>
+    <h2>Glenn Hold - UI Developer</h2>
+    <h2>
+        <span>Glenn Hold - UI Developer</span>
+        <br/>
+        <span>next line</span>
+    </h2>
+</body>
+</html>

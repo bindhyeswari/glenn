@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<script src="googlemaps.js" defer></script>-->
+    <script>
+        var x = {
+            name: 'Glenn'
+        };
+
+        var y = Object.create(x);
+
+        console.log(Object.getPrototypeOf(y) === x);
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // bind to print the index
+            /*var lis = document.querySelector('ul').children;
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].addEventListener('click', function (i) {
+                    console.log(i);
+                }.bind(lis[i], i));
+            }*/
+
+            // event delegation
+            var ul = document.querySelector('ul');
+            var lis = Array.prototype.slice.call(ul.children);
+            ul.addEventListener('click', function (event) {
+                console.log(lis.indexOf(event.target));
+            });
+        });
+
+        // 'hello'.split('').join(' ') - not very efficient - short and readable
+
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>Li 1</li>
+        <li>Li 2</li>
+        <li>Li 3</li>
+        <li>Li 4</li>
+    </ul>
+</body>
+</html>
