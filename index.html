@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function test(a, b) {
+            if (test.length === arguments.length) {
+                return a + b;
+            } else if (test.length > arguments.length) {
+
+                // test.bind(null, arguments[0], arguments[1], ... )
+                var args = [null];
+                args.concat(Array.prototype.slice.call(arguments));
+                test.bind.apply(test, args);
+            }
+        }
+
+        test(1,2);
+        test(1)(2); // partial application / currying
+
+        // Object.prototype <-- Function.prototype <-- test
+
+        function sum(x, y) {
+            sum.cache = sum.cache || {};
+            var key = hash(arguments);
+            if (key in sum.cache) return sum.cache[key];
+            else {
+                sum.cache[key] = x + y;
+                return sum.cache[key];
+            }
+
+            function hash(args) {
+                return Array.prototype.slice.call(args).join(',');
+            }
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
